@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import os_client_config
+
 from keystoneauth1 import session as ksa_session
 from oslo_utils import importutils
 from venusclient.common import httpclient
@@ -48,7 +49,7 @@ def _load_service_type(session,
     try:
         # Trigger an auth error so that we can throw the exception
         # we always have
-        aaa = session.get_endpoint(
+        session.get_endpoint(
             service_type=service_type,
             service_name=service_name,
             interface=interface,

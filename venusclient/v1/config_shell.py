@@ -12,13 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from venusclient.common import cliutils as utils
-from venusclient.i18n import _
 
-
-
-def do_get_log_storage_days(cs,args):
+def do_get_log_storage_days(cs, args):
     """get the elasticsearch days of svae the logs."""
     endpoint = cs.config.get_days()
-
-
+    print(endpoint)

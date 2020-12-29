@@ -27,13 +27,11 @@ from __future__ import print_function
 import argparse
 import logging
 import os
-import sys
-
-import six
 from oslo_utils import encodeutils
 from oslo_utils import importutils
 from oslo_utils import strutils
-
+import six
+import sys
 from venusclient.common import cliutils
 from venusclient import exceptions as exc
 from venusclient.i18n import _
@@ -496,7 +494,7 @@ class OpenStackVenusShell(object):
         args.os_project_id = (args.os_project_id or args.os_tenant_id)
         args.os_project_name = (args.os_project_name or args.os_tenant_name)
 
-        #self._ensure_auth_info(args)
+        # self._ensure_auth_info(args)
 
         try:
             client = {

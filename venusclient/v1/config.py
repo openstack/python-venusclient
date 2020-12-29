@@ -31,6 +31,5 @@ class ConfigManager(basemodels.BaseModelManager):
         url = '/v1/custom_config'
         try:
             resp, body = self.api.json_request('GET', url)
-        except:
-            print("")
-
+        except Exception as e:
+            raise RuntimeError(str(e))
