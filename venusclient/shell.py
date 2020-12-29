@@ -34,6 +34,13 @@ from oslo_utils import encodeutils
 from oslo_utils import importutils
 from oslo_utils import strutils
 
+from venusclient.common import cliutils
+from venusclient import exceptions as exc
+from venusclient.i18n import _
+from venusclient.v1 import client as client_v1
+from venusclient.v1 import shell as shell_v1
+from venusclient import version
+
 profiler = importutils.try_import("osprofiler.profiler")
 
 HAS_KEYRING = False
@@ -52,12 +59,6 @@ try:
 except ImportError:
     pass
 
-from venusclient.common import cliutils
-from venusclient import exceptions as exc
-from venusclient.i18n import _
-from venusclient.v1 import client as client_v1
-from venusclient.v1 import shell as shell_v1
-from venusclient import version
 
 LATEST_API_VERSION = ('1', 'latest')
 DEFAULT_INTERFACE = 'public'
@@ -140,8 +141,6 @@ class OpenStackVenusShell(object):
                             default=os.environ.get('OS_REGION_NAME'),
                             help=_('Region name. '
                                    'Default=env[OS_REGION_NAME].'))
-
-
 
         parser.add_argument('--os-auth-url',
                             metavar='<auth-auth-url>',
