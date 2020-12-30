@@ -12,7 +12,7 @@ python-veusclient
 ===============================
 
 .. image:: https://img.shields.io/pypi/v/python-venusclient.svg
-    :target: https://pypi.python.org/pypi/python-cyborgclient/
+    :target: https://pypi.python.org/pypi/python-venusclient/
     :alt: Latest Version
 
 python-venusclient is a python bindings to the OpenStack Venus API. There's
