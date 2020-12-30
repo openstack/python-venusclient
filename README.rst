@@ -7,3 +7,14 @@ Team and repository tags
 
 .. Change things from this point on
 
+===============================
+python-veusclient
+===============================
+
+.. image:: https://img.shields.io/pypi/v/python-venusclient.svg
+    :target: https://pypi.python.org/pypi/python-cyborgclient/
+    :alt: Latest Version
+
+python-venusclient is a python bindings to the OpenStack Venus API. There's
+a Python API (the ``venusclient`` module), and a command-line script
+(``venus``). Each implements 100% of the OpenStack Venus API.
