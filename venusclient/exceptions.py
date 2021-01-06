@@ -17,7 +17,6 @@ import inspect
 import sys
 
 from oslo_serialization import jsonutils
-import six
 
 from venusclient.i18n import _
 
@@ -491,14 +490,14 @@ def from_response(response, method, url, message=None, traceback=None):
                     # {u'error_message': u'{"debuginfo": null, "faultcode":
                     # "Client", "faultstring": "error message"}'}, the
                     # "error_message" in the body is also a json string.
-                    if isinstance(error, six.string_types):
+                    if isinstance(error, str):
                         error = jsonutils.loads(error)
 
                 if hasattr(error, 'keys'):
                     kwargs['message'] = (error.get('message') or
                                          error.get('faultstring'))
                     kwargs['details'] = (error.get('details') or
-                                         six.text_type(body))
+                                         str(body))
     elif content_type.startswith("text/"):
         kwargs["details"] = getattr(response, 'text', '')
 
