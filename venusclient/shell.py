@@ -30,7 +30,6 @@ import os
 from oslo_utils import encodeutils
 from oslo_utils import importutils
 from oslo_utils import strutils
-import six
 import sys
 from venusclient.common import cliutils
 from venusclient import exceptions as exc
@@ -630,7 +629,7 @@ def main():
 
     except Exception as e:
         logger.debug(e, exc_info=1)
-        print("ERROR: %s" % encodeutils.safe_encode(six.text_type(e)),
+        print("ERROR: %s" % encodeutils.safe_encode(str(e)),
               file=sys.stderr)
         sys.exit(1)
 
