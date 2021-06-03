@@ -14,6 +14,6 @@
 
 
 def do_get_log_storage_days(cs, args):
-    """get the elasticsearch days of svae the logs."""
+    """get the days of saved logs in elasticsearch(unit day)."""
     endpoint = cs.config.get_days()
     print(endpoint)
