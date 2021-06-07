@@ -21,5 +21,5 @@ def do_get_log_storage_days(cs, args):
 
 def do_get_log(cs, args):
     """get log content"""
-    endpoint = cs.config.search_logs(args)
+    endpoint = cs.config.get_logs(args)
     print(endpoint)
