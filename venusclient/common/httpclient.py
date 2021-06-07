@@ -36,7 +36,7 @@ LOG = logging.getLogger(__name__)
 USER_AGENT = 'python-venusclient'
 CHUNKSIZE = 1024 * 64  # 64kB
 
-API_VERSION = '/v1'
+API_VERSION = '/v1.0'
 DEFAULT_API_VERSION = 'latest'
 
 

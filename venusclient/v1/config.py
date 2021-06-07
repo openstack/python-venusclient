@@ -33,3 +33,11 @@ class ConfigManager(basemodels.BaseModelManager):
             resp, body = self.api.json_request('GET', url)
         except Exception as e:
             raise RuntimeError(str(e))
+
+    def get_logs(self, args):
+        print(args)
+        url = '/v1/search/logs'
+        try:
+            resp, body = self.api.json_request('GET', url)
+        except Exception as e:
+            raise RuntimeError(str(e))
