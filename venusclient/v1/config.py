@@ -31,6 +31,7 @@ class ConfigManager(basemodels.BaseModelManager):
         url = '/v1/custom_config'
         try:
             resp, body = self.api.json_request('GET', url)
+            return body
         except Exception as e:
             raise RuntimeError(str(e))
 
@@ -39,5 +40,6 @@ class ConfigManager(basemodels.BaseModelManager):
         url = '/v1/search/logs'
         try:
             resp, body = self.api.json_request('GET', url)
+            return body
         except Exception as e:
             raise RuntimeError(str(e))
