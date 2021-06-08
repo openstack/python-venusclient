@@ -24,7 +24,7 @@ from venusclient.v1 import config
 profiler = importutils.try_import("osprofiler.profiler")
 
 
-DEFAULT_SERVICE_TYPE = 'compute'
+DEFAULT_SERVICE_TYPE = 'log-system'
 
 
 def _load_session(cloud=None, insecure=False, timeout=None, **kwargs):
