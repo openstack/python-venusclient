@@ -1,4 +1,4 @@
 [gerrit]
 host=review.opendev.org
 port=29418
-project=inspur/python-venusclient.git
+project=openstack/python-venusclient.git
