@@ -11,5 +11,4 @@ stestr>=1.0.0 # Apache-2.0
 testtools>=1.4.0 # MIT
 openstackdocstheme>=2.2.1 # Apache-2.0
 requests-mock>=0.6.0  # Apache-2.0
-# releasenotes
 reno>=3.1.0 # Apache-2.0
