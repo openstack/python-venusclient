@@ -8,7 +8,7 @@ Team and repository tags
 .. Change things from this point on
 
 ===============================
-python-veusclient
+python-venusclient
 ===============================
 
 .. image:: https://img.shields.io/pypi/v/python-venusclient.svg
