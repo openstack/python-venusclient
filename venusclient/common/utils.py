@@ -13,6 +13,7 @@
 #   under the License.
 #
 import logging
+from urllib import parse
 
 from oslo_serialization import jsonutils
 
@@ -157,3 +158,19 @@ def args_array_to_patch(op, attributes):
         else:
             raise exc.CommandError(_('Unknown PATCH operation: %s') % op)
     return patch
+
+
+def prepare_query_string(params):
+    """Convert dict params to query string"""
+    # Transform the dict to a sequence of two-element tuples in fixed
+    # order, then the encoded string will be consistent in Python 2&3.
+    if not params:
+        return ''
+    params = sorted(params.items(), key=lambda x: x[0])
+    return '?%s' % parse.urlencode(params) if params else ''
+
+
+def get_url_with_filter(url, filters):
+    query_string = prepare_query_string(filters)
+    url = "%s%s" % (url, query_string)
+    return url

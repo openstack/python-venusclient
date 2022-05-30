@@ -1,17 +1,16 @@
-# Copyright 2014
-# The Cloudscaling Group, Inc.
+# Copyright 2020 Inspur
 #
-# Licensed under the Apache License, Version 2.0 (the "License"); you may not
-# use this file except in compliance with the License. You may obtain a copy
-# of the License at
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
 #
-#    http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
 
 import os_client_config
 
@@ -19,6 +18,7 @@ from keystoneauth1 import session as ksa_session
 from oslo_utils import importutils
 from venusclient.common import httpclient
 from venusclient.v1 import config
+from venusclient.v1 import search
 
 
 profiler = importutils.try_import("osprofiler.profiler")
@@ -181,6 +181,7 @@ class Client(object):
             )
 
         self.config = config.ConfigManager(self.http_client)
+        self.search = search.SearchManager(self.http_client)
 
         profile = kwargs.pop("profile", None)
         if profiler and profile:
