@@ -27,19 +27,17 @@ class SearchManager(basemodels.BaseModelManager):
     base_url = "search"
     resource_class = LogSearch
 
-    def get_log(self, start_time=0, end_time=20, page_size=15, page_num=1):
+    def get_log(self, args, start_time=0, end_time=20, page_size=15,
+                page_num=1):
         url = '/v1/search/logs'
 
         params = {
-            'start_time': start_time,
+            'start_time1': start_time,
             'end_time': end_time,
             'page_size': page_size,
             'page_num': page_num
         }
         url += utils.prepare_query_string(params)
-
-        print('123123123')
-        print(url)
 
         try:
             resp, body = self.api.json_request('GET', url)
