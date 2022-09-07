@@ -13,7 +13,9 @@
 # under the License.
 
 from venusclient.v1 import config_shell
+from venusclient.v1 import search_shell
 
 COMMAND_MODULES = [
-    config_shell
+    config_shell,
+    search_shell
 ]

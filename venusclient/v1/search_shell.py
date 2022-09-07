@@ -13,8 +13,8 @@
 # under the License.
 
 
-def do_get_log_storage_days(cs, args):
-    """get the days of saved logs in elasticsearch(unit day)."""
-    endpoint = cs.config.get_days()
+def do_get_log(cs, args):
+    """get log content"""
+    endpoint = cs.config.get_logs(args)
     print(endpoint)
     return endpoint
