@@ -634,5 +634,7 @@ def main():
 
 
 if __name__ == "__main__":
-    print(os.environ)
+
+    # for key in os.environ:
+    #     print(key +"=" + os.getenv(key))
     main()

@@ -15,6 +15,6 @@
 
 def do_get_log(cs, args):
     """get log content"""
-    endpoint = cs.config.get_logs(args)
+    endpoint = cs.search.get_log(args)
     print(endpoint)
     return endpoint

@@ -15,12 +15,19 @@
 from venusclient.common import utils
 from venusclient.v1 import basemodels
 
+CREATION_ATTRIBUTES = basemodels.CREATION_ATTRIBUTES
+
+
+class LogSearch(basemodels.BaseModel):
+    model_name = "Searchs"
+
 
 class SearchManager(basemodels.BaseModelManager):
     api_name = "search"
     base_url = "search"
+    resource_class = LogSearch
 
-    def get_logs(self, start_time=0, end_time=20, page_size=15, page_num=1):
+    def get_log(self, start_time=0, end_time=20, page_size=15, page_num=1):
         url = '/v1/search/logs'
 
         params = {
