@@ -58,7 +58,7 @@ except ImportError:
 
 LATEST_API_VERSION = ('1', 'latest')
 DEFAULT_INTERFACE = 'public'
-DEFAULT_SERVICE_TYPE = 'log-system'
+DEFAULT_SERVICE_TYPE = 'log-management'
 
 logger = logging.getLogger(__name__)
 
