@@ -25,3 +25,10 @@ def do_get_type_host(cs, args):
     endpoint = cs.search.get_type_host(args)
     print(endpoint)
     return endpoint
+
+
+def do_get_type_level(cs, args):
+    """get log level all cluster"""
+    endpoint = cs.search.get_type_host(args)
+    print(endpoint)
+    return endpoint

@@ -58,3 +58,17 @@ class SearchManager(basemodels.BaseModelManager):
             return body
         except Exception as e:
             raise RuntimeError(str(e))
+
+    def get_type_level(self, args):
+        url = '/v1/search/params'
+
+        params = {
+            'type': "host_name",
+        }
+        url += utils.prepare_query_string(params)
+
+        try:
+            resp, body = self.api.json_request('GET', url)
+            return body
+        except Exception as e:
+            raise RuntimeError(str(e))
