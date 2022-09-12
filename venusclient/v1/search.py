@@ -32,7 +32,7 @@ class SearchManager(basemodels.BaseModelManager):
         url = '/v1/search/logs'
 
         params = {
-            'start_time1': start_time,
+            'start_time': start_time,
             'end_time': end_time,
             'page_size': page_size,
             'page_num': page_num
