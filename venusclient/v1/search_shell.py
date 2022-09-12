@@ -39,3 +39,10 @@ def do_get_type_module(cs, args):
     endpoint = cs.search.get_type_module(args)
     print(endpoint)
     return endpoint
+
+
+def do_get_type_program(cs, args):
+    """get log module all cluster"""
+    endpoint = cs.search.get_type_program(args)
+    print(endpoint)
+    return endpoint
