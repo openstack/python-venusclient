@@ -32,3 +32,10 @@ def do_get_type_level(cs, args):
     endpoint = cs.search.get_type_host(args)
     print(endpoint)
     return endpoint
+
+
+def do_get_type_module(cs, args):
+    """get log module all cluster"""
+    endpoint = cs.search.get_type_module(args)
+    print(endpoint)
+    return endpoint
