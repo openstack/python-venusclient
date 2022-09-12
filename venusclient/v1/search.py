@@ -27,7 +27,7 @@ class SearchManager(basemodels.BaseModelManager):
     base_url = "search"
     resource_class = LogSearch
 
-    def get_log(self, args, start_time=0, end_time=20, page_size=15,
+    def get_log(self, start_time=0, end_time=20, page_size=15,
                 page_num=1):
         url = '/v1/search/logs'
 
@@ -45,7 +45,7 @@ class SearchManager(basemodels.BaseModelManager):
         except Exception as e:
             raise RuntimeError(str(e))
 
-    def get_type_host(self, args):
+    def get_type_host(self):
         url = '/v1/search/params'
 
         params = {
@@ -59,7 +59,7 @@ class SearchManager(basemodels.BaseModelManager):
         except Exception as e:
             raise RuntimeError(str(e))
 
-    def get_type_level(self, args):
+    def get_type_level(self):
         url = '/v1/search/params'
 
         params = {
