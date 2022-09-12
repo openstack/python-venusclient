@@ -18,3 +18,10 @@ def do_get_log(cs, args):
     endpoint = cs.search.get_log(args)
     print(endpoint)
     return endpoint
+
+
+def do_get_type_host(cs, args):
+    """get host name all cluster"""
+    endpoint = cs.search.get_type_host(args)
+    print(endpoint)
+    return endpoint
