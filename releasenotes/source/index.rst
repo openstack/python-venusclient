@@ -7,8 +7,3 @@
 
    unreleased
    zed
-   victoria
-   ussuri
-   train
-   stein
-   rocky
