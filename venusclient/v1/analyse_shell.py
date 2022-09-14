@@ -12,13 +12,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from venusclient.v1 import analyse_shell
-from venusclient.v1 import config_shell
-from venusclient.v1 import search_shell
 
-
-COMMAND_MODULES = [
-    config_shell,
-    search_shell,
-    analyse_shell
-]
+def do_analyse_log(cs, args):
+    """get log content"""
+    endpoint = cs.analyse.analyse_log(args)
+    print(endpoint)
+    return endpoint
