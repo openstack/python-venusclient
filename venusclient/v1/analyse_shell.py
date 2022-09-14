@@ -14,14 +14,14 @@
 
 
 def do_analyse_log(cs, args):
-    """get log content"""
+    """get analyse log content"""
     endpoint = cs.analyse.analyse_log(args)
     print(endpoint)
     return endpoint
 
 
 def do_typical_log(cs, args):
-    """get log content"""
+    """get typical log content"""
     endpoint = cs.analyse.typical_log(args)
     print(endpoint)
     return endpoint
