@@ -18,3 +18,10 @@ def do_analyse_log(cs, args):
     endpoint = cs.analyse.analyse_log(args)
     print(endpoint)
     return endpoint
+
+
+def do_typical_log(cs, args):
+    """get log content"""
+    endpoint = cs.analyse.typical_log(args)
+    print(endpoint)
+    return endpoint
