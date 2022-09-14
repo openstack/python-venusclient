@@ -17,6 +17,7 @@ import os_client_config
 from keystoneauth1 import session as ksa_session
 from oslo_utils import importutils
 from venusclient.common import httpclient
+from venusclient.v1 import analyse
 from venusclient.v1 import config
 from venusclient.v1 import search
 
@@ -182,6 +183,7 @@ class Client(object):
 
         self.config = config.ConfigManager(self.http_client)
         self.search = search.SearchManager(self.http_client)
+        self.analyse = analyse.AnalyseManager(self.http_client)
 
         profile = kwargs.pop("profile", None)
         if profiler and profile:
