@@ -37,10 +37,14 @@ class AnalyseManager(basemodels.BaseModelManager):
         except Exception as e:
             raise RuntimeError(str(e))
 
-    def typical_log(self):
+    def typical_log(self, start_time, end_time, type):
         url = '/v1/search/typical/logs'
-        url += utils.prepare_query_string()
-
+        params = {
+            'start_time': start_time,
+            'end_time': end_time,
+            'type': type
+        }
+        url += utils.prepare_query_string(params)
         try:
             resp, body = self.api.json_request('GET', url)
             return body
