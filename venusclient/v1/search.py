@@ -28,7 +28,7 @@ class SearchManager(basemodels.BaseModelManager):
     resource_class = LogSearch
 
     def get_log(self, start_time=0, end_time=20, page_size=15,
-                page_num=1, module_name=''):
+                page_num=1, module_name='', host_name=''):
         url = '/v1/search/logs'
 
         params = {
@@ -36,7 +36,8 @@ class SearchManager(basemodels.BaseModelManager):
             'end_time': end_time,
             'page_size': page_size,
             'page_num': page_num,
-            'module_name': module_name
+            'module_name': module_name,
+            'host_name': host_name
         }
         url += utils.prepare_query_string(params)
 
