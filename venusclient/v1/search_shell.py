@@ -46,3 +46,10 @@ def do_get_type_program(cs, args):
     endpoint = cs.search.get_type_program(args)
     print(endpoint)
     return endpoint
+
+
+def do_get_instance_request_ids(cs, args):
+    """get instance request id list."""
+    endpoint = cs.search.get_instance_request_ids(args)
+    print(endpoint)
+    return endpoint

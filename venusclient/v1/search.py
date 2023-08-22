@@ -105,3 +105,12 @@ class SearchManager(basemodels.BaseModelManager):
             return body
         except Exception as e:
             raise RuntimeError(str(e))
+
+    def get_instance_request_ids(self, args):
+        url = 'v1/search/instance/request_ids'
+
+        try:
+            resp, body = self.api.json_request('GET', url)
+            return body
+        except Exception as e:
+            raise RuntimeError(str(e))
