@@ -53,3 +53,10 @@ def do_get_instance_request_ids(cs, args):
     endpoint = cs.search.get_instance_request_ids(args)
     print(endpoint)
     return endpoint
+
+
+def do_get_analyse_logs(cs, args):
+    """get search analyse logs"""
+    endpoint = cs.search.do_get_analyse_logs(args)
+    print(endpoint)
+    return endpoint
