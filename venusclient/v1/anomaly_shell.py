@@ -18,3 +18,10 @@ def do_rule_list(cs, args):
     endpoint = cs.anomaly.rule_list(args)
     print(endpoint)
     return endpoint
+
+
+def do_record_list(cs, args):
+    """get anomaly record list"""
+    endpoint = cs.anomaly.rule_list(args)
+    print(endpoint)
+    return endpoint

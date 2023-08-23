@@ -49,3 +49,25 @@ class AnomalyManager(basemodels.BaseModelManager):
             return body
         except Exception as e:
             raise RuntimeError(str(e))
+
+    def record_list(self, title='', log_type='', module='',
+                    start_time=0, end_time=0,
+                    page_num=1, page_size=1):
+        url = '/v1/anomaly/record/list'
+
+        params = {
+            'title ': title,
+            'log_type': log_type,
+            'module': module,
+            'start_time': start_time,
+            'end_time': end_time,
+            'page_num': page_num,
+            'page_size': page_size
+        }
+        url += utils.prepare_query_string(params)
+
+        try:
+            resp, body = self.api.json_request('GET', url)
+            return body
+        except Exception as e:
+            raise RuntimeError(str(e))
