@@ -114,3 +114,25 @@ class SearchManager(basemodels.BaseModelManager):
             return body
         except Exception as e:
             raise RuntimeError(str(e))
+
+    def do_get_analyse_logs(self, level='', start_time=0, end_time=0,
+                            host_name='', module_name='', program_name='',
+                            group_name='host_name'):
+        url = 'v1/search/analyse/logs'
+
+        params = {
+            'group_name': group_name,
+            'host_name': host_name,
+            'module_name': module_name,
+            'program_name': program_name,
+            'level': level,
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        url += utils.prepare_query_string(params)
+
+        try:
+            resp, body = self.api.json_request('GET', url)
+            return body
+        except Exception as e:
+            raise RuntimeError(str(e))
