@@ -13,12 +13,13 @@
 # under the License.
 
 from venusclient.v1 import analyse_shell
+from venusclient.v1 import anomaly_shell
 from venusclient.v1 import config_shell
 from venusclient.v1 import search_shell
-
 
 COMMAND_MODULES = [
     config_shell,
     search_shell,
-    analyse_shell
+    analyse_shell,
+    anomaly_shell,
 ]
