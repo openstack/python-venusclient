@@ -12,6 +12,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from venusclient.common import cliutils as utils
+
 
 def do_get_log(cs, args):
     """get log content"""
@@ -58,5 +60,18 @@ def do_get_instance_request_ids(cs, args):
 def do_get_analyse_logs(cs, args):
     """get search analyse logs"""
     endpoint = cs.search.do_get_analyse_logs(args)
+    print(endpoint)
+    return endpoint
+
+
+@utils.arg('request_id',
+           metavar='<request_id>',
+           help='request id.')
+@utils.arg('uuid',
+           metavar='<uuid>',
+           help='uuid.')
+def do_get_instance_callchain(cs, args):
+    """get instance callchain"""
+    endpoint = cs.search.get_instance_callchain(args.request_id, args.uuid)
     print(endpoint)
     return endpoint
