@@ -34,3 +34,19 @@ class ConfigManager(basemodels.BaseModelManager):
             return body
         except Exception as e:
             raise RuntimeError(str(e))
+
+    def set_custom_config(self, config_id, value):
+        """Set custom config to the specified value.
+
+        :param config_id: The ID of the custom config
+        :param value: The value to set
+        :returns: The result of the set action.
+        """
+        url = '/v1/custom_config'
+        body = {'id': config_id,
+                'value': value}
+        try:
+            resp, body = self.api.json_request('POST', url, body=body)
+            return body
+        except Exception as e:
+            raise RuntimeError(str(e))
