@@ -27,6 +27,23 @@ class AnomalyManager(basemodels.BaseModelManager):
     base_url = "anomaly"
     resource_class = LogAnomaly
 
+    def add_anomaly_rule(self, title, desc, keyword, log_type, module):
+        url = '/v1/anomaly/rule'
+
+        body = {
+            'title': title,
+            'desc': desc,
+            'keyword': keyword,
+            'log_type': log_type,
+            'module': module
+        }
+
+        try:
+            resp, body = self.api.json_request('POST', url, body=body)
+            return body
+        except Exception as e:
+            raise RuntimeError(str(e))
+
     def rule_list(self, title='', desc='', keyword='',
                   log_type='', module_name='', host_name='',
                   page_num=1, page_size=10):
