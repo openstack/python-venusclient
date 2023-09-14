@@ -75,30 +75,25 @@ def do_search_logs(cs, args):
     return endpoint
 
 
-def do_get_type_host(cs, args):
-    """get host name all cluster"""
-    endpoint = cs.search.get_type_host(args)
-    print(endpoint)
-    return endpoint
-
-
-def do_get_type_level(cs, args):
-    """get log level all cluster"""
-    endpoint = cs.search.get_type_host(args)
-    print(endpoint)
-    return endpoint
-
-
-def do_get_type_module(cs, args):
-    """get log module all cluster"""
-    endpoint = cs.search.get_type_module(args)
-    print(endpoint)
-    return endpoint
-
-
-def do_get_type_program(cs, args):
-    """get log module all cluster"""
-    endpoint = cs.search.get_type_program(args)
+@utils.arg('type',
+           metavar='<type>',
+           choices=['host_name', 'level', 'program_name', 'module_name'],
+           help='The type of parameter, such as host_name, level, program_name'
+                ', module_name')
+@utils.arg('--module_name',
+           metavar='<module_name>',
+           dest='module_name',
+           help='The module name.')
+@utils.arg('--index_type',
+           metavar='<index_type>',
+           dest='index_type',
+           choices=['flog', 'slog'],
+           help='The type of elasticsearch index, flog(default):Openstack log,'
+                ' slog:host OS log.')
+def do_get_search_params(cs, args):
+    """get search parameters of specified type"""
+    endpoint = cs.search.get_search_params(args.type, args.module_name,
+                                           args.index_type)
     print(endpoint)
     return endpoint
 

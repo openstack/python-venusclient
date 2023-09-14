@@ -54,55 +54,15 @@ class SearchManager(basemodels.BaseModelManager):
         except Exception as e:
             raise RuntimeError(str(e))
 
-    def get_type_host(self):
+    def get_search_params(self, type, module_name, index_type='flog'):
         url = '/v1/search/params'
 
-        params = {
-            'type': "host_name",
-        }
-        url += utils.prepare_query_string(params)
-
-        try:
-            resp, body = self.api.json_request('GET', url)
-            return body
-        except Exception as e:
-            raise RuntimeError(str(e))
-
-    def get_type_level(self):
-        url = '/v1/search/params'
-
-        params = {
-            'type': "level",
-        }
-        url += utils.prepare_query_string(params)
-
-        try:
-            resp, body = self.api.json_request('GET', url)
-            return body
-        except Exception as e:
-            raise RuntimeError(str(e))
-
-    def get_type_module(self, args):
-        url = '/v1/search/params'
-
-        params = {
-            'type': "module_name",
-        }
-        url += utils.prepare_query_string(params)
-
-        try:
-            resp, body = self.api.json_request('GET', url)
-            return body
-        except Exception as e:
-            raise RuntimeError(str(e))
-
-    def get_type_program(self, args):
-        url = '/v1/search/params'
-
-        params = {
-            'type': "program_name",
-        }
-        url += utils.prepare_query_string(params)
+        qparams = {"type": type}
+        if module_name:
+            qparams["module_name"] = module_name
+        if index_type:
+            qparams["index_type"] = index_type
+        url += utils.prepare_query_string(qparams)
 
         try:
             resp, body = self.api.json_request('GET', url)
