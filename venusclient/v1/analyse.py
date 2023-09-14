@@ -27,21 +27,18 @@ class AnalyseManager(basemodels.BaseModelManager):
     base_url = "search"
     resource_class = LogAnalyse
 
-    def analyse_log(self, start_time=0, end_time=20, page_size=15,
-                    page_num=1, module_name='', host_name='', program_name='',
-                    level=''):
+    def analyse_log(self, group_name='', host_name='', module_name='',
+                    program_name='', level='', start_time=0, end_time=20):
         url = '/v1/search/analyse/logs'
 
         params = {
-            'start_time': start_time,
-            'end_time': end_time,
-            'page_size': page_size,
-            'page_num': page_num,
-            'module_name': module_name,
+            'group_name': group_name,
             'host_name': host_name,
+            'module_name': module_name,
             'program_name': program_name,
-            'group_name': "program_name",
-            'level': level
+            'level': level,
+            'start_time': start_time,
+            'end_time': end_time
         }
         url += utils.prepare_query_string(params)
 
