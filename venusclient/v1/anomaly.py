@@ -76,6 +76,15 @@ class AnomalyManager(basemodels.BaseModelManager):
         except Exception as e:
             raise RuntimeError(str(e))
 
+    def delete_anomaly_rule(self, rule_id):
+        url = '/v1/anomaly/rule/' + rule_id
+
+        try:
+            resp, body = self.api.json_request('DELETE', url)
+            return body
+        except Exception as e:
+            raise RuntimeError(str(e))
+
     def record_list(self, title='', log_type='', module='',
                     start_time=0, end_time=0,
                     page_num=1, page_size=1):
