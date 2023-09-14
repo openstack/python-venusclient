@@ -44,6 +44,16 @@ def do_add_anomaly_rule(cs, args):
     return endpoint
 
 
+@utils.arg('id',
+           metavar='<id>',
+           help='The id of an anomaly rule.')
+def do_get_anomaly_rule(cs, args):
+    """get an anomaly rule"""
+    endpoint = cs.anomaly.get_anomaly_rule(args.id)
+    print(endpoint)
+    return endpoint
+
+
 def do_rule_list(cs, args):
     """get anomaly rule list"""
     endpoint = cs.anomaly.rule_list(args)
